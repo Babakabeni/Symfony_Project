@@ -1,0 +1,12 @@
+home:
+    path: /MyAgence
+    controller: App\Controller\HomeController::index
+property.index:
+    path: /Biens
+    controller: App\Controller\PropertyController::index    
+property.show:
+    path: /Biens/{id}
+    controller: App\Controller\HomeController::show
+#controllers:
+ #   resource: ../src/Controller/
+  #  type: attribute
