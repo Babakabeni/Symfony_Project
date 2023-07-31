@@ -1,0 +1,6 @@
+framework:
+    default_local: '%locale%'
+    translator:
+        default_path: '%kernel.project_dir%/translations'
+        fallbaks: 
+            - '%locale%'    

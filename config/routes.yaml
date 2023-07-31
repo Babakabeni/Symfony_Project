@@ -7,6 +7,21 @@ property.index:
 property.show:
     path: /Biens/{id}
     controller: App\Controller\HomeController::show
+admin.property.index:
+    path: /Admin
+    controller: App\Controller\Admin\AdminPropertyController::index
+admin.property.new:
+    path: /Admin/new
+    controller: App\Controller\Admin\AdminPropertyController::new
+admin.property.edit:
+    path: /Admin/{id}
+    methods: [GET|POST]
+    controller: App\Controller\Admin\AdminPropertyController::edit
+admin.property.delete:
+    path: /Admin/delete/{id}
+    methods: [DELETE|POST]
+    controller: App\Controller\Admin\AdminPropertyController::delete
+    
 #controllers:
  #   resource: ../src/Controller/
   #  type: attribute
