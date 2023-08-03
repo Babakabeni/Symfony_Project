@@ -20,6 +20,11 @@ services:
         calls:
             - method: setContainer
               arguments: ['@service_container']
+
+    App\Controller\SecurityController:
+        calls:
+            - method: setContainer
+              arguments: ['@Psr\Container\ContainerInterface']
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
     App\Entity\Property:

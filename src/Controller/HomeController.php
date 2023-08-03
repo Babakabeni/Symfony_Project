@@ -12,7 +12,7 @@ use Twig\Environment;
 class HomeController extends AbstractController 
 {
     /**
-     * @param PropertyRepository $repo 
+     * @param PropertyRepository
      */
      
     private $property;
@@ -34,7 +34,7 @@ class HomeController extends AbstractController
 
     /**
      * @return Response
-     * $id
+     * @var $id
      */
 
     public function show($id): Response

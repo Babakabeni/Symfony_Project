@@ -23,7 +23,7 @@
                             <a href="{{path('admin.property.edit', {'id': p.id})}}" class="btn btn-secondary">
                             Editer
                             </a>
-                            <form method="POST" Action="{{path('admin.property.delete', {id: p.id})}}" style="display: inline-block" onsubmit="return confirm('Etes vous vraiment sûr ?')">
+                            <form method="Post" Action="{{path('admin.property.delete', {id: p.id})}}" style="display: inline-block" onsubmit="return confirm('Etes vous vraiment sûr ?')">
                                 <input type="hidden" name="_method" values="DELETE">
                                 <input type="hidden" name="_token" values="{{csrf_token('delete' ~ p.id)}}">
                                 <button type="submit" class="btn btn-danger">Supprimer</button>
