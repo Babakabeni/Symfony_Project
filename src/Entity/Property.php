@@ -40,6 +40,7 @@ class Property
 
     #[ORM\Column]
     private ?int $Price = null;
+    
     public function formattedPrice()
     {
         return number_format($this->Price, 0, '', ' ');

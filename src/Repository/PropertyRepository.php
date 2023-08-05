@@ -3,7 +3,10 @@
 namespace App\Repository;
 
 use App\Entity\Property;
+use App\Entity\PropertyDTO;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Migrations\Query\Query;
+use Doctrine\ORM\Query as ORMQuery;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -23,14 +26,23 @@ class PropertyRepository extends ServiceEntityRepository
     }
 
     /**
-     * @return Property[]
+     * @return Query
      */
 
-    public function findAllVisible(): array
+    public function findAllVisibleQuery(PropertyDTO $search): ORMQuery
     {
-        return $this->findVisibleQuery()
-            ->getQuery()
-            ->getResult();
+        $query = $this->findVisibleQuery();
+        if($search->getMaxPrice()){
+        $query = $query
+                ->andWhere('p.Price <= :maxprice')
+                ->setParameter('maxprice', $search->getMaxPrice());
+        }
+        if($search->getMinSurface()){
+            $query = $query
+                    ->andWhere('p.Surface <= :minsurface')
+                    ->setParameter('minsurface', $search->getMinSurface());
+            }
+        return $query->getQuery();
     }
 
     /**

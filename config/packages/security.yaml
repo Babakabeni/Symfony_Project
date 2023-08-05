@@ -32,10 +32,10 @@ security:
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
-    encoders: 
-        App\Entity\User:
-            algorithm: bcrypt
-            cost: 12 
+    #encoders: 
+        #App\Entity\User:    
+            #algorithm: bcrypt
+            #cost: 12 
 
 when@test:
     security:

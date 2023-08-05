@@ -1,5 +1,32 @@
 {% extends 'base.html.twig' %}
 {% block body %}
+    <div class="jumbotron" style="background-color: navy; height: 40px; align-item: center;"> 
+        <div class="container">
+            {{form_start(form)}}
+            <div class="row">
+                <div class= "col">
+                    {{form_row(form.minSurface)}}
+                </div>
+                <div class= "col">
+                    {{form_row(form.maxPrice)}}
+                </div>
+                <div class= "col">
+                    <button class="btn btn-primary"> Rechercher </button>
+                </div>
+            </div>
+            {{form_end(form)}}
+        </div>
+    </div>
     <div class="container mt-4"> 
         <h1>Voir tous Nos bien</h1>
+        <div class="row">
+            {% for p in properties %}
+                <div class="col-md-4">
+                    {% include 'pages/property/_property.html.twig' %}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="navigation">
+            {{ knp_pagination_render(properties) }}
+        </div>
 {% endblock %}
